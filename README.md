@@ -5,3 +5,10 @@ Parses any DarkBasic Classic document and spews it into a data dictionary, examp
 
 Please note that at the time of writing, the code is very messy and was rushed (if you count 7 - 10 hours as rushing...)
 I will (hopefully) refactor the majority of it, and finish moving stuff around so that it is more reusable.
+
+# How to use it
+Ensure that any files that the main file uses (other source code) is next to the main source file.
+Simply drag and drop the main .dba file onto the executable (after building it). Any included files will also be searched through and added to the data dictionary.
+
+# Important note on detection
+I was pretty lazy and didn't bother to allow anything but lowercase constructs to be detected. Function/subroutines of your own can have any name, as long as the prefix "function", and the suffixes "endfunction", and "return" are lowercase. This is the same for any other construct: "if", "for", "endif", "gosub", etc...
