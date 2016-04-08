@@ -1,9 +1,5 @@
 ﻿using System;
-using System.CodeDom;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dark_Basic_App_Parser {
 	public class Helper {
@@ -39,7 +35,8 @@ namespace Dark_Basic_App_Parser {
 
 		public enum ConstructType {
 			Function,
-			Subroutine
+			Subroutine,
+			Array
 		}
 
 		public enum Scope {
@@ -54,6 +51,7 @@ namespace Dark_Basic_App_Parser {
 			//public object Value { get; set; }
 			public int LineDeclaredAt { get; set; }
 			public List<int> LinesUsedOn { get; set; }
+			public string File { get; set; }
 		}
 
 		public class FunctionOrSubroutine {
@@ -66,42 +64,11 @@ namespace Dark_Basic_App_Parser {
 			/// 0 is the start, 1 is the end.
 			/// </summary>
 			public List<int> LineDeclaredAt { get; set; }
-
 			public List<int> LinesUsedOn { get; set; }
+			public string File { get; set; }
 		}
 
-		public static VariableType GetTypeOfData(string variableName, bool isArray = false) {
-			if(variableName == null) { return VariableType.Unknown;  };
-
-			if(variableName.Contains("#")) {
-				if(isArray) {
-					return VariableType.Array_of_Floats;
-				}
-
-				return VariableType.Float;
-			} else if(variableName.Contains("$")) {
-				if(isArray) {
-					return VariableType.Array_of_Strings;
-				}
-
-				return VariableType.String;
-			} else {
-				if(isArray) {
-					return VariableType.Array_of_Ints;
-				}
-
-				return VariableType.Int;
-			}
-		}
-
-		public static string RemoveNonVariableWords(List<string> removableVariableWords, string varName) {
-			foreach(var variable in removableVariableWords) {
-				varName = varName.Replace(variable, "");
-			}
-
-			return varName;
-		}
-
+		/*
 		public static bool IsVariable(List<string> nonVariableWords, List<string> removableVariableWords, string varName) {
 			varName = RemoveNonVariableWords(removableVariableWords, varName);
 
@@ -113,5 +80,6 @@ namespace Dark_Basic_App_Parser {
 
 			return true;
 		}
+		*/
 	}
 }
