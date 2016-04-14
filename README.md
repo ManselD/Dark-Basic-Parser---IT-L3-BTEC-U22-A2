@@ -1,4 +1,4 @@
-# Dark Basic Parser - Unit 22 - Assignment 2
+# Dark Basic Parser - Unit 22 - Assignment 3
 Parses any DarkBasic Classic document and spews it into a data dictionary, example below:
 
 ![Here's an example of the output it generates](https://i.gyazo.com/6d82211d869d6f01c1ed0f17e7816b3e.png)
