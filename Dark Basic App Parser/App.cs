@@ -19,6 +19,7 @@ namespace Dark_Basic_App_Parser {
 		}
 
 		public void Run(string[] args) {
+			args = new []{ Environment.CurrentDirectory + @"\game.dba" };
 			if(!File.Exists(badListFile)) {
 				Console.WriteLine(@"Missing ""bad list""");
 				Console.ReadLine();
@@ -146,7 +147,7 @@ namespace Dark_Basic_App_Parser {
 					//} else {
 					//Check if potentialVariable is being used inside of method
 					foreach(var variableUsedLine in variable.LinesUsedOn) {
-						if(variableUsedLine >= construct.LineDeclaredAt[0] && variableUsedLine <= construct.LineDeclaredAt[1]) {
+						if(construct.LineDeclaredAt.Count == 2 && variableUsedLine >= construct.LineDeclaredAt[0] && variableUsedLine <= construct.LineDeclaredAt[1]) {
 							if(!whereUsedFuncList.Contains(construct.Name)) {
 								whereUsedFuncList.Add(construct.Name);
 							}

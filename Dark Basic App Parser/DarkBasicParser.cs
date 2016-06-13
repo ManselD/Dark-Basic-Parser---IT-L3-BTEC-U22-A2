@@ -137,7 +137,7 @@ namespace Dark_Basic_App_Parser {
 			foreach(var construct in subroutinesAndFunctions) {
 				//Go through every construct
 				//Check if potential variable is being used inside of that construct
-				if(construct.LineDeclaredAt.Count > 0) {
+				if(construct.LineDeclaredAt.Count > 0 && construct.LineDeclaredAt.Count == 2) {
 					//We're inside of a function and have been declared, we are in local scope
 					//>= and <= because there could be parameters involved, which should be declared local
 					if(curLine >= construct.LineDeclaredAt[0] && curLine <= construct.LineDeclaredAt[1]) {
